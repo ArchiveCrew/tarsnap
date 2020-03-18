@@ -133,8 +133,6 @@ lib_libtarsnap_a_SOURCES=					\
 		lib/network/tsnetwork_buf.c			\
 		lib/network/tsnetwork_bwlimit.c			\
 		lib/network/tsnetwork_connect.c			\
-		lib/network/tsnetwork_cork.c			\
-		lib/network/tsnetwork_cork.h			\
 		lib/network/tsnetwork_internal.h		\
 		lib/network/tsnetwork_register.c		\
 		lib/network/tsnetwork_select.c			\
@@ -153,6 +151,8 @@ lib_libtarsnap_a_SOURCES=					\
 		lib/util/tvmath.c				\
 		lib/util/tvmath.h				\
 		lib-platform/platform.h				\
+		lib-platform/network/tsnetwork_cork.c		\
+		lib-platform/network/tsnetwork_cork.h		\
 		lib-platform/util/getfstype.c			\
 		lib-platform/util/getfstype.h			\
 		lib-platform/util/memlimit.c			\
@@ -246,6 +246,7 @@ lib_libtarsnap_a_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/scryptenc		\
 		-I$(top_srcdir)/lib/util		\
 		-I$(top_srcdir)/lib-platform		\
+		-I$(top_srcdir)/lib-platform/network	\
 		-I$(top_srcdir)/lib-platform/util	\
 		-I$(top_srcdir)/libarchive		\
 		-I$(top_srcdir)/libcperciva/alg		\
