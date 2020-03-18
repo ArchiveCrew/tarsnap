@@ -140,7 +140,6 @@ lib_libtarsnap_a_SOURCES=					\
 		lib/network/tsnetwork_select.c			\
 		lib/network/tsnetwork_sleep.c			\
 		lib/network/tsnetwork_writeq.c			\
-		lib/platform.h					\
 		lib/scryptenc/scryptenc.c			\
 		lib/scryptenc/scryptenc.h			\
 		lib/scryptenc/scryptenc_cpuperf.c		\
@@ -157,6 +156,7 @@ lib_libtarsnap_a_SOURCES=					\
 		lib/util/sigquit.h				\
 		lib/util/tvmath.c				\
 		lib/util/tvmath.h				\
+		lib-platform/platform.h				\
 		libcperciva/alg/sha256.c			\
 		libcperciva/alg/sha256.h			\
 		libcperciva/alg/sha256_shani.h			\
@@ -236,7 +236,6 @@ nodist_lib_libtarsnap_a_SOURCES=				\
 
 lib_libtarsnap_a_CPPFLAGS=				\
 		-I$(top_srcdir)/tar			\
-		-I$(top_srcdir)/libarchive		\
 		-I$(top_srcdir)/lib			\
 		-I$(top_srcdir)/lib/crypto		\
 		-I$(top_srcdir)/lib/datastruct		\
@@ -246,6 +245,8 @@ lib_libtarsnap_a_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/network		\
 		-I$(top_srcdir)/lib/scryptenc		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
+		-I$(top_srcdir)/libarchive		\
 		-I$(top_srcdir)/libcperciva/alg		\
 		-I$(top_srcdir)/libcperciva/cpusupport	\
 		-I$(top_srcdir)/libcperciva/crypto	\
@@ -405,6 +406,7 @@ tarsnap_CPPFLAGS=					\
 		-I$(top_srcdir)/lib/netproto		\
 		-I$(top_srcdir)/lib/network		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
 		-I$(top_srcdir)/libcperciva/crypto	\
 		-I$(top_srcdir)/libcperciva/datastruct	\
 		-I$(top_srcdir)/libcperciva/util	\
@@ -435,6 +437,7 @@ tarsnap_keygen_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/netproto		\
 		-I$(top_srcdir)/lib/network		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
 		-I$(top_srcdir)/libcperciva/crypto	\
 		-I$(top_srcdir)/libcperciva/util	\
 		-DUSERAGENT=\"tarsnap-keygen-${VERSION}\"
@@ -464,6 +467,7 @@ tarsnap_keyregen_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/netproto		\
 		-I$(top_srcdir)/lib/network		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
 		-I$(top_srcdir)/libcperciva/crypto	\
 		-I$(top_srcdir)/libcperciva/util	\
 		-DUSERAGENT=\"tarsnap-keyregen-${VERSION}\"
@@ -506,6 +510,7 @@ tarsnap_recrypt_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/netproto		\
 		-I$(top_srcdir)/lib/network		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
 		-I$(top_srcdir)/libcperciva/crypto	\
 		-I$(top_srcdir)/libcperciva/util	\
 		-DUSERAGENT=\"tarsnap-recrypt-${VERSION}\"
@@ -528,6 +533,7 @@ tarsnap_keymgmt_CPPFLAGS=				\
 		-I$(top_srcdir)/lib/datastruct		\
 		-I$(top_srcdir)/lib/keyfile		\
 		-I$(top_srcdir)/lib/util		\
+		-I$(top_srcdir)/lib-platform		\
 		-I$(top_srcdir)/libcperciva/crypto	\
 		-I$(top_srcdir)/libcperciva/util
 
