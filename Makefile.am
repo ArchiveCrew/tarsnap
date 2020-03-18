@@ -532,6 +532,15 @@ tarsnap_keymgmt_CPPFLAGS=				\
 
 tarsnap_keymgmt_man_MANS=	keymgmt/tarsnap-keymgmt.1
 
+#
+# Test framework and support programs
+#
+#
+
+.PHONY: test
+test: all
+	$(top_srcdir)/tests/test_tarsnap.sh .
+
 #  Tarsnap configuration file
 if INSTALL_CONF_NO_SAMPLE
 tar/tarsnap.conf: tar/tarsnap.conf.sample
