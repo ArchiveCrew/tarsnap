@@ -6,7 +6,8 @@ AUTOMAKE_OPTIONS= foreign subdir-objects
 # What to build and install
 #
 noinst_LIBRARIES=	libarchive/libarchive.a lib/libtarsnap.a lib/libtarsnap_aesni.a lib/libtarsnap_rdrand.a lib/libtarsnap_shani.a lib/libtarsnap_sse2.a
-bin_PROGRAMS=	tarsnap tarsnap-keygen tarsnap-keyregen tarsnap-recrypt tarsnap-keymgmt
+bin_PROGRAMS=	tarsnap tarsnap-keygen tarsnap-keyregen tarsnap-recrypt tarsnap-keymgmt \
+	fake-keygen
 man_MANS=$(tarsnap_man_MANS) $(tarsnap_keygen_man_MANS) $(tarsnap_keyregen_man_MANS) $(tarsnap_recrypt_man_MANS) $(tarsnap_keymgmt_man_MANS)
 CLEANFILES=	$(man_MANS)
 
@@ -540,6 +541,13 @@ tarsnap_keymgmt_man_MANS=	keymgmt/tarsnap-keymgmt.1
 .PHONY: test
 test: all
 	$(top_srcdir)/tests/test_tarsnap.sh .
+
+fake_keygen_SOURCES= 	tests/fake-keygen/fake-keygen.c
+fake_keygen_LDADD= $(LIBTARSNAP_A)
+fake_keygen_CPPFLAGS=					\
+		-I$(top_srcdir)/lib/crypto		\
+		-I$(top_srcdir)/lib/keyfile		\
+		-I$(top_srcdir)/libcperciva/util
 
 #  Tarsnap configuration file
 if INSTALL_CONF_NO_SAMPLE
